@@ -1,0 +1,44 @@
+---
+title: "Untitled"
+author: "Arunava"
+date: "December 18, 2017"
+output: pdf_document
+---
+
+The loading of the data set;
+
+```{r}
+install.packages("devtools")
+devtools::install_github("jhudsl/collegeIncome")
+library(collegeIncome)
+data(college)
+
+
+```
+
+Next download and install the matahari R package with the following commands:
+
+````{r}
+devtools::install_github("jhudsl/matahari")
+library(matahari)
+
+```
+
+Before you start the analysis for this assignment, enter the following command to begin the documentation of your analysis:
+
+```{r}
+dance_start(value = FALSE, contents = FALSE)
+```
+
+Exploratory Analysis
+
+```{r}
+library(ggplot2)
+
+dat <- aggregate(college$median, by = list(college$major_category), FUN = mean)
+rm(g)
+g <- ggplot(data = dat, aes(x=Group.1, y = x))
+g <- g+ geom_col()
+g
+```
+
